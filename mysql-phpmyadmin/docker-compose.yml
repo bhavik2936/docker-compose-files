@@ -1,0 +1,41 @@
+# Version of docker-compose file is no longer required
+version: '3.3'
+
+services:
+
+  mysql:
+    image: mysql
+    container_name: mysql
+    restart: unless-stopped
+    ports:
+      - 3306:3306
+    env_file:
+      - mysqlCreds.env
+    networks:
+      - mysql-network
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: phpmyadmin
+    restart: unless-stopped
+    depends_on:
+      - mysql
+    ports:
+      - 8080:80
+    env_file:
+      - phpmyadminCreds.env
+    networks:
+      - mysql-network
+
+# Bridge type of network connecting to both (mysql, phpmyadmin) containers.
+# As recommended by docker (https://docs.docker.com/network/bridge)
+networks:
+  mysql-network:
+    name: mysql-network
+    driver: bridge
+
+# Named volumes for persisting necessary containers' data across restart.
+volumes:
+  mysql-data:
