@@ -6,5 +6,7 @@ List of Docker Compose setups.
 
 - [`PostgreSQL / pgAdmin`](https://github.com/bhavik2936/docker-compose-files/blob/main/postgres-pgadmin) - Basic setup of PostgreSQL database with pgAdmin.
 
+- [`MySQL / phpMyAdmin`](https://github.com/bhavik2936/docker-compose-files/blob/main/mysql-phpmyadmin) - Basic setup of MySQL database with phpMyAdmin.
+
 ## Feedback
 Suggestions/improvements are [welcomed](https://github.com/bhavik2936/docker-compose-files/issues)!
