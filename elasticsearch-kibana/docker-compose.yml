@@ -15,7 +15,10 @@ services:
       memlock:
         soft: -1
         hard: -1
-    mem_limit: 4g
+    deploy:
+      resources:
+        limits:
+          memory: 4g
     networks:
       - es-network
     volumes:
@@ -33,7 +36,10 @@ services:
       - kibanaCreds.env
     ports:
       - 5601:5601
-    mem_limit: 1g
+    deploy:
+      resources:
+        limits:
+          memory: 1g
     networks:
       - es-network
     volumes:
