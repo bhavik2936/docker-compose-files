@@ -7,12 +7,13 @@ Elasticsearch, the search engine itself can be accessed on host machine (localho
 #### Description
 Below configuration are already set by default via `esCreds.env` file and can be modified by overriding the same.
 
-| Config   | Value    | Comment                                                       |
-| -------- | -------- | ------------------------------------------------------------- |
-| Port     | 9200     | Exposed at localhost (127.0.0.1)                              |
-| Username | elastic  |                                                               |
-| Password |          | Passowrd is disabled via `xpack.security.enabled:false`       |
-| RAM      | 2 GB     | Memory is restricted to 2 GB via `bootstrap.memory_lock:true` |
+| Config        | Value   | Comment                                                                  |
+| ------------- | ------- | ------------------------------------------------------------------------ |
+| Port          | 9200    | Exposed at localhost (127.0.0.1)                                         |
+| Username      | elastic |                                                                          |
+| Password      |         | Password is disabled via `xpack.security.enabled:false`                  |
+| JVM Memory    | 2 GB    | JVM memory usage is constrained to 2 GB via `bootstrap.memory_lock:true` |
+| Docker Memory | 3 GB    | Container's main memory usage is limited to 3 GB via compose file        |
 
 ### Kibana
 Kibana is integrated to graphically visualize the elasticsearch.
@@ -21,6 +22,7 @@ It can be accessed on host machine (localhost) web browser at http://localhost:5
 #### Configuration
 Below configuration are already set by default via `kibanaCreds.env` file and can be modified by overriding the same.
 
-| Config   | Value | Comment                          |
-| -------- | ----- | -------------------------------- |
-| Port     | 5601  | Exposed at localhost (127.0.0.1) |
+| Config        | Value | Comment                                                           |
+| ------------- | ----- | ----------------------------------------------------------------- |
+| Port          | 5601  | Exposed at localhost (127.0.0.1)                                  |
+| Docker Memory | 1 GB  | Container's main memory usage is limited to 1 GB via compose file |
