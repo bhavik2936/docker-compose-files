@@ -1,0 +1,59 @@
+# Version of docker-compose file is no longer required
+version: '3.9'
+
+services:
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.4.3
+    container_name: elasticsearch
+    restart: unless-stopped
+    ports:
+      - 9200:9200
+    env_file:
+      - esCreds.env
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    deploy:
+      resources:
+        limits:
+          memory: 3g
+    networks:
+      - es-network
+    volumes:
+      - es-data:/usr/share/elasticsearch/data
+      # Uncomment below line to persist logs
+      # - es-log:/usr/share/elasticsearch/logs
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.4.3
+    container_name: kibana
+    depends_on:
+      - elasticsearch
+    restart: unless-stopped
+    env_file:
+      - kibanaCreds.env
+    ports:
+      - 5601:5601
+    deploy:
+      resources:
+        limits:
+          memory: 1g
+    networks:
+      - es-network
+    volumes:
+      - kibana-data:/usr/share/kibana/data
+
+# Bridge type of network connecting to both (elasticsearch, kibana) containers.
+# As recommended by docker (https://docs.docker.com/network/bridge)
+networks:
+  es-network:
+    name: es-network
+    driver: bridge
+
+# Named volumes for persisting necessary containers' data across restart.
+volumes:
+  es-data:
+  es-log:
+  kibana-data:
