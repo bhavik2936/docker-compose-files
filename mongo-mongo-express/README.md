@@ -16,7 +16,11 @@ Below configuration are already set by default via `mongoCreds.env` file and can
 | Username | root  |                                  |
 | Password | root  |                                  |
 
-**Note**: The MONGODB_URL required to interact with MongoDB would be [mongodb://root:root@localhost:27017/db](mongodb://root:root@localhost:27017/db) where _db_ is the name of the database you will use.
+**Note**: An example of connection string to interact with MongoDB is as below.
+
+[mongodb://root:root@localhost:27017/user](mongodb://root:root@localhost:27017/user)
+
+where **user** is the name of the user having previleges to perform read/write operations on MongoDB.
 
 ## Mongo Express
 
