@@ -36,3 +36,6 @@ Below configuration are already set by default via `mongoExpressCreds.env` file 
 | Port     | 8081  | Exposed at localhost (127.0.0.1) |
 | Username | root  |                                  |
 | Password | root  |                                  |
+| BasicAuth Username | root | This will be used to authenticate the user when they open the express in the browser. |
+| BasicAuth Password | root | This will be used to authenticate the user when they open the express in the browser. |
+
