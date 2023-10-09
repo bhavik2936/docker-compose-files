@@ -1,0 +1,38 @@
+services:
+  mongo:
+    image: mongo
+    container_name: mongo
+    restart: unless-stopped
+    ports:
+      - 27017:27017
+    env_file:
+      - mongoCreds.env
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - mongo-network
+
+  mongo-express:
+    image: mongo-express
+    container_name: mongo_express
+    restart: unless-stopped
+    ports:
+      - 8081:8081
+    env_file:
+      - mongoExpressCreds.env
+    volumes:
+      - mongo-express-data:/data/configdb
+    networks:
+      - mongo-network
+
+# Bridge type of network connecting to both (mongo, mongo-express) containers.
+# As recommended by docker (https://docs.docker.com/network/bridge)
+networks:
+  mongo-network:
+    name: mongo-network
+    driver: bridge
+
+# Named volumes for persisting necessary containers' data across restart.
+volumes:
+  mongo-data:
+  mongo-express-data:
