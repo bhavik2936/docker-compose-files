@@ -16,11 +16,9 @@ Below configuration are already set by default via `mongoCreds.env` file and can
 | Username | root  |                                  |
 | Password | root  |                                  |
 
-**Note**: An example of connection string to interact with MongoDB is as below.
+An example of connection string to interact with MongoDB is as below.
 
-[mongodb://root:root@localhost:27017/user](mongodb://root:root@localhost:27017/user)
-
-where **user** is the name of the user having previleges to perform read/write operations on MongoDB.
+[mongodb://root:root@localhost:27017](mongodb://root:root@localhost:27017)
 
 ## Mongo Express
 
