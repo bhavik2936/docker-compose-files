@@ -10,5 +10,7 @@ List of Docker Compose setups.
 
 - [`Elasticsearch / Kibana`](https://github.com/bhavik2936/docker-compose-files/blob/main/elasticsearch-kibana) - Passwordless setup of Elasticsearch search engine with Kibana visualizer.
 
+- [`Mongo / Mongo-Express`](https://github.com/bhavik2936/docker-compose-files/blob/main/mongo-mongo-express) - Basic setup of MongoDB database with Mongo Express.
+
 ## Feedback
 Suggestions/improvements are [welcomed](https://github.com/bhavik2936/docker-compose-files/issues)!
